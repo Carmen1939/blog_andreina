@@ -6,14 +6,17 @@
     <title>Blog</title>
 </head>
 <body>
+    <div>
+    <form action="{{ route('home') }}" method="GET">
+    <input type="text" name="search" placeholder="Buscar" value="{{ request('search') }}">
+    </form>
+    </div>
     <p>
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{route('blog')}}">Blog</a>
         @auth
-        <a href="{{route('dashboard')}}">Dashboard</a>
+        <a href="{{route('posts.index')}}">Post</a>
         @else
-        <a href="{{route('dashboard')}}">Login</a>
-        @endauth
+    <a href="{{route('dashboard')}}">Login</a>    
+    @endauth
     </p>
 
     <hr>

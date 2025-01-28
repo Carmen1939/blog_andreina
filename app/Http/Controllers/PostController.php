@@ -31,8 +31,8 @@ class PostController extends Controller
         ]);
 
         $post = $request->user()->posts()->create([
-            'title'=> $title = $request->title,
-            'slug' => Str::slug($title),
+            'title'=> $request->title,
+            'slug' => Str::slug($request->slug),
             'body' => $request->body
         
         ]);
@@ -53,10 +53,9 @@ class PostController extends Controller
         ]);
 
         $post->update([
-            'title'=> $title = $request->title,
-            'slug' => Str::slug($title),
+            'title'=> $request->title,
+            'slug' => Str::slug($request->slug),
             'body' => $request->body
-        
         ]);
         return redirect()->route('posts.edit',$post);
     }
