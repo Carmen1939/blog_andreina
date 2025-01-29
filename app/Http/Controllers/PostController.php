@@ -27,13 +27,17 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required',
             'slug'=>'required|unique:posts,slug',
-            'body'=>'required'
+            'body'=>'required',
+            'img_page' => 'required',
+            'img_content' => 'required'
         ]);
 
         $post = $request->user()->posts()->create([
             'title'=> $request->title,
             'slug' => Str::slug($request->slug),
-            'body' => $request->body
+            'body' => $request->body,
+            'img_page' => $request->img_page,
+            'img_content' => $request->img_content
         
         ]);
         return redirect()->route('posts.edit',$post);
@@ -49,13 +53,17 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required',
             'slug'=>'required|unique:posts,slug' , $post->id,
-            'body'=>'required'
+            'body'=>'required',
+            'img_page' => 'required',
+            'img_content' => 'required'
         ]);
 
         $post->update([
             'title'=> $request->title,
             'slug' => Str::slug($request->slug),
-            'body' => $request->body
+            'body' => $request->body,
+            'img_page' => $request->img_page,
+            'img_content' => $request->img_content
         ]);
         return redirect()->route('posts.edit',$post);
     }
