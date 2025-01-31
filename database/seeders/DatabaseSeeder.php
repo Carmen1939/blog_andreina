@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 use App\Models\Post;
+use App\Models\category;
+use App\Models\comments;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,6 +23,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'user' => 'apirela',
         // ]);
-        Post::factory(80)->create();
-    }
+        category::factory(5)->create();
+        Post::factory(20)->create();
+        comments::factory(10)->create();
+
+        }
 }

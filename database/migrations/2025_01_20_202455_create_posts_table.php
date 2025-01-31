@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string(column: 'title', length:100);
             $table->string('slug')->unique();
             $table->text(column: 'body');
-            $table->string('img_page');
-            $table->string('img_content');
+            $table->string('img_page', length:100);
+            $table->string('img_content', length:100);
             $table->boolean('status');
             $table->timestamps();
         });
